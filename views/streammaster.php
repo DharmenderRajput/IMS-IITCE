@@ -27,7 +27,7 @@
         <h3>Stream Creation</h3>
     </div>
     <div class="row">
-        <div class="col-sm-6" style="height:80vh;background:red;border:2px solid black;">
+        <div class="col-sm-6" style="height:80vh;border:2px solid black;">
             <!-- stream creation form -->
             <form action="" method="post">
                 <label for="stream_name">Stream</label>

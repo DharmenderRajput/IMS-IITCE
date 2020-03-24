@@ -27,7 +27,7 @@
         <h3>Fee Head Creation</h3>
     </div>
     <div class="row">
-        <div class="col-sm-6" style="height:80vh;background:red;border:2px solid black;">
+        <div class="col-sm-6" style="height:80vh;border:2px solid black;">
             <!-- Fee Head creation form -->
             <form action="" method="post">
                 <label for="stream_name">Fee Head Code</label>
@@ -36,15 +36,19 @@
                 <input class="form-control" type="text" name="feehead_name" id="" placeholder="Enter Fee Head Name">
                 <label for="stream_name">Fee Head Type</label>
                 <select class="form-control" name="feehead_type" id="">
+                    <option></option>
                     <option value="">Institutional</option>
                     <option value="">Non-Institutional</option>
-                    <option value="">Refundable</option>
+                    <!-- <option value="">Refundable</option> -->
                 </select>
                 <label for="stream_name">Fee Head Category</label>
                 <select class="form-control" name="feehead_category" id="">
-                    <option value="">Institutional</option>
-                    <option value="">Non-Institutional</option>
+                    <option></option>
+                    <option value="">Installment</option>
+                    <option value="">Exam</option>
+                    <option value="">Addmission</option>
                     <option value="">Refundable</option>
+                    <option value="">Additional</option>
                 </select>
                 <label for="stream_name">Taxable</label>
                 <input class="form-control" type="checkbox" name="feehead_tax" id="">

@@ -18,7 +18,8 @@
     }
 
     #fetching new stream
-    function fetchstream()
+    #the argument defines the calling location of the code and response output
+    function fetchstream($call = 0)
     {
         include ("../library/database/config.php");
 
@@ -27,7 +28,11 @@
         if ($query) {
             if (mysqli_num_rows($query) > 0) {
                 while ($row = mysqli_fetch_assoc($query)) {
-                    echo "<tr><td>".$row['stream_name']." <form method ='POST'> <button type='submit' name='update' value='".$row['id']."'>Update</button><button type='submit' name='delete' value='".$row['id']."'>Delete</button></form><td></tr>";
+                    if($call == 0){
+                        echo "<tr><td>".$row['stream_name']." <form method ='POST'> <button type='submit' name='update' value='".$row['id']."'>Update</button><button type='submit' name='delete' value='".$row['id']."'>Delete</button></form><td></tr>";
+                    }else{
+                        echo "<option value='".$row['id']."'>".$row['stream_name']."</option>";
+                    }
                 }
             }else{
                 echo "<tr><td>NO DATA FOUND<td></tr>";
@@ -63,6 +68,7 @@
         if ($query) {
             $result = mysqli_fetch_assoc($query);
             echo '
+                <hr>
                 <form method="POST">
                     <input type = "text" value = "'.$result['stream_name'].'" name="stream_name">
                     <input type = "hidden" value = "'.$update.'" name = "stream_id">

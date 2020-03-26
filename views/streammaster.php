@@ -49,9 +49,13 @@
         </div>
         <div class="col-sm-6" style="height:80vh;;border:2px solid black;">
             <!-- display existing stream -->
-            <table class="table">
+            <table class="table table-bordered">
                 <tr>
-                    <th>STREAMS</th>
+                    <th colspan="2">STREAMS</th>
+                </tr>
+                <tr class="info">
+                    <th>Stream Name</th>
+                    <th>Actions</th>
                 </tr>
                 <?php
                     // fetching existing streams

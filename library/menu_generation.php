@@ -25,16 +25,17 @@
 
             echo '
             <li class="dropdown">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$menu_head .'<span class="caret"></span></a>
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$menu_head .' <span class="caret"></span></a>
                 <ul class="dropdown-menu">
             ';
 
             while ($row = mysqli_fetch_assoc($search)) {
                 $submenu_head = $row['menu_head'];
                 $link = $row['link'];
+                $icon = $row['icon'];
 
                 echo '
-                    <li><a href="./'.$link.'">'.$submenu_head.'</a></li>
+                    <li><a href="./'.$link.'"><span class="glyphicon '.$icon.'" aria-hidden="true" style="color:black;padding-right:10px;"></span> '.$submenu_head.'</a></li>
                 ';
             }
 

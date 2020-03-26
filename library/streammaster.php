@@ -70,9 +70,11 @@
             echo '
                 <hr>
                 <form method="POST">
-                    <input type = "text" value = "'.$result['stream_name'].'" name="stream_name">
+                    <h3>UPDATE STREAM</h3>
+                    <input class="form-control" type = "text" value = "'.$result['stream_name'].'" name="stream_name">
                     <input type = "hidden" value = "'.$update.'" name = "stream_id">
-                    <input type = "submit" value = "UPDATE Stream" name = "update_stream">
+                    <br>
+                    <input class="btn btn-info" type = "submit" value = "UPDATE Stream" name = "update_stream">
                 </form>
             ';
         }

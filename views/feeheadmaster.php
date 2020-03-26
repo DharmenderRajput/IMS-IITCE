@@ -29,28 +29,45 @@
             <hr>
             <!-- Fee Head creation form -->
             <form action="" method="post">
-                <label for="stream_name">Fee Head Code</label>
-                <input class="form-control" type="text" name="feehead_code" id="" placeholder="Enter Fee Head Code">
-                <label for="stream_name">Fee Head Name</label>
-                <input class="form-control" type="text" name="feehead_name" id="" placeholder="Enter Fee Head Name">
-                <label for="stream_name">Fee Head Type</label>
-                <select class="form-control" name="feehead_type" id="">
-                    <option></option>
-                    <option value="">Institutional</option>
-                    <option value="">Non-Institutional</option>
-                    <!-- <option value="">Refundable</option> -->
-                </select>
-                <label for="stream_name">Fee Head Category</label>
-                <select class="form-control" name="feehead_category" id="">
-                    <option></option>
-                    <option value="">Installment</option>
-                    <option value="">Exam</option>
-                    <option value="">Addmission</option>
-                    <option value="">Refundable</option>
-                    <option value="">Additional</option>
-                </select>
-                <label for="stream_name">Taxable</label>
-                <input class="form-control" type="checkbox" name="feehead_tax" id="">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Fee Head Code</span>
+                    <input type="text" class="form-control" name="feehead_code" placeholder="Enter Fee Head Code" aria-describedby="basic-addon1">
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon2">Fee Head Name</span>
+                    <input type="text" class="form-control" name="feehead_name" placeholder="Enter Fee Head Name" aria-describedby="basic-addon2">
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon3">Fee Head Type</span>
+                    <!-- <input type="text" class="form-control" name="feehead_name" placeholder="Enter Fee Head Name" aria-describedby="basic-addon2"> -->
+                    <select class="form-control" name="feehead_type" id="" aria-describedby="basic-addon3">
+                        <option></option>
+                        <option value="">Institutional</option>
+                        <option value="">Non-Institutional</option>
+                        <!-- <option value="">Refundable</option> -->
+                    </select>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon4">Fee Head Category</span>
+                    <!-- <input type="text" class="form-control" name="feehead_name" placeholder="Enter Fee Head Name" aria-describedby="basic-addon2"> -->
+                    <select class="form-control" name="feehead_category" id="" aria-describedby="basic-addon4">
+                        <option></option>
+                        <option value="">Installment</option>
+                        <option value="">Exam</option>
+                        <option value="">Addmission</option>
+                        <option value="">Refundable</option>
+                        <option value="">Additional</option>
+                    </select>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon5">Taxable</span>
+                    <input type="checkbox" class="form-control" name="feehead_tax" aria-describedby="basic-addon5">
+                </div>
+                <br>
                 <button class="btn btn-success" type="submit" name="new">Create Stream</button>
             </form>
 

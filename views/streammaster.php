@@ -29,8 +29,13 @@
             <hr>
             <!-- stream creation form -->
             <form action="" method="post">
-                <label for="stream_name">Stream</label>
-                <input class="form-control" type="text" name="stream_name" id="" placeholder="Enter Stream Name">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Stream Name</span>
+                    <input type="text" class="form-control" name="stream_name" placeholder="Enter Stream Name" aria-describedby="basic-addon1">
+                </div>
+                <!-- <label for="stream_name">Stream</label>
+                <input class="form-control" type="text" name="stream_name" id="" placeholder="Enter Stream Name"> -->
+                <br>
                 <button class="btn btn-success" type="submit" name="new">Create Stream</button>
             </form>
 
@@ -70,7 +75,8 @@
         $result = createstream($stream_name);
         if($result){
             // echo "<script>alert('Hurray');</script>";
-            header("location:./streammaster.php");
+            // header("location:./streammaster.php");
+            echo "<script>window.location.href='./streammaster.php';</script>";
         }else{
             // echo "<script>alert('Opps!');</script>";
         }
@@ -84,7 +90,8 @@
         $result = updatestream($id, $update);
         if($result){
             // echo "<script>alert('Hurray');</script>";
-            header("location:./streammaster.php");
+            // header("location:./streammaster.php");
+            echo "<script>window.location.href='./streammaster.php';</script>";
         }else{
             echo "<script>alert('Opps!');</script>";
         }
@@ -97,7 +104,8 @@
         $result = deletestreame($delete);
         if($result){
             // echo "<script>alert('Stream Has Been Successfully Removed!');</script>";
-            header("location:./streammaster.php");
+            // header("location:./streammaster.php");
+            echo "<script>window.location.href='./streammaster.php';</script>";
         }else{
             echo "<script>alert('Opps Some Error has occured.');<script>";
         }

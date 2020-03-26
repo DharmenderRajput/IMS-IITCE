@@ -14,6 +14,28 @@
 </head>
 <body>
     
+    <!-- Header Branding -->
+    <div class="container-fluid" id="top-header">
+        <div class="row">
+            <div class="col-sm-1">
+                <img src="../assets/images/iitce_logo.png" alt="IITCE LOGO" width="100px">
+            </div>
+            <div class="col-sm-7" style="text-align:center;">
+                <h1 style="font-weight:bold;color:white;">INSTITUTE MANAGEAMENT SYSTEM</h1>
+                <p>For IITCE Developed by DoonDevelopers</p>
+            </div>
+            <div class="col-sm-3">
+                <p>Company - IITCE</p>
+                <p>Current Date - <?php echo date("d-m-Y"); ?></p>
+                <p>Current User - Admin</p>
+            </div>
+            <div class="col-sm-1" style="text-align:center;">
+                <p></p>
+                <span class="glyphicon glyphicon-log-out" aria-hidden="true" style="font-size:40px;color:black;"></span>
+                <p style="font-size:16px;">Log-Out</p>
+            </div>
+        </div>
+    </div>
     <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->

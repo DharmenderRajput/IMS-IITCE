@@ -22,12 +22,12 @@
 <!-- main section of the application -->
 
 <div class="container-fluid" style="height:90vh;border:2px solid black;">
-    <div class="container-fluid" style="height:10vh;">
-        <!-- this area only displays descriptive informations -->
-        <h3>Course Creation</h3>
-    </div>
     <div class="row">
         <div class="col-sm-6" style="height:80vh;border:2px solid black;">
+
+            <h3 class="page-info">Course Creation</h3>
+            <hr>
+
             <!-- Course creation form -->
             <form action="" method="post">
                 <label for="stream_name">Course Stream</label>
@@ -43,17 +43,16 @@
                 <input class="form-control" type="text" name="feehead_name" id="" placeholder="Enter Fee Head Name">
                 <label for="stream_name">Course Abbr Name</label>
                 <input class="form-control" type="text" name="feehead_name" id="" placeholder="Enter Fee Head Name">
-                <label for="stream_name">Fee Head Category</label>
+                <label for="stream_name">Course Duration</label>
+                <input class="form-control" type="number" name="feehead_name" id="" placeholder="Enter Duration Period">
                 <select class="form-control" name="feehead_category" id="">
                     <option></option>
-                    <option value="">Installment</option>
-                    <option value="">Exam</option>
-                    <option value="">Addmission</option>
-                    <option value="">Refundable</option>
-                    <option value="">Additional</option>
+                    <option value="">Hours</option>
+                    <option value="">Months</option>
+                    <option value="">Year</option>
                 </select>
-                <label for="stream_name">Taxable</label>
-                <input class="form-control" type="checkbox" name="feehead_tax" id="">
+                <!-- <label for="stream_name">Taxable</label>
+                <input class="form-control" type="checkbox" name="feehead_tax" id=""> -->
                 <button class="btn btn-success" type="submit" name="new">Create Stream</button>
             </form>
 

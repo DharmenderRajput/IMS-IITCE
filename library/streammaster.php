@@ -29,7 +29,7 @@
             if (mysqli_num_rows($query) > 0) {
                 while ($row = mysqli_fetch_assoc($query)) {
                     if($call == 0){
-                        echo "<tr><td>".$row['stream_name']." <form method ='POST'> <button type='submit' name='update' value='".$row['id']."'>Update</button><button type='submit' name='delete' value='".$row['id']."'>Delete</button></form><td></tr>";
+                        echo "<tr><td>".$row['stream_name']." </td><td><form method ='POST'> <button type='submit' name='update' value='".$row['id']."'>Update</button><button type='submit' name='delete' value='".$row['id']."'>Delete</button></form></td></tr>";
                     }else{
                         echo "<option value='".$row['id']."'>".$row['stream_name']."</option>";
                     }

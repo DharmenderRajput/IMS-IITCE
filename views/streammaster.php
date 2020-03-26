@@ -22,12 +22,11 @@
 <!-- main section of the application -->
 
 <div class="container-fluid" style="height:90vh;border:2px solid black;">
-    <div class="container-fluid" style="height:10vh;">
-        <!-- this area only displays descriptive informations -->
-        <h3>Stream Creation</h3>
-    </div>
     <div class="row">
         <div class="col-sm-6" style="height:80vh;border:2px solid black;">
+
+            <h3 class="page-info">STREAM CREATION</h3>
+            <hr>
             <!-- stream creation form -->
             <form action="" method="post">
                 <label for="stream_name">Stream</label>

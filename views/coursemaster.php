@@ -30,30 +30,42 @@
 
             <!-- Course creation form -->
             <form action="" method="post">
-                <label for="stream_name">Course Stream</label>
-                <select class="form-control" name="feehead_category" id="">
-                    <option></option>
-                    <?php
-                        // fetching all streams present
-                        $call = 1; //passing 1 to fetch desired output structure
-                        fetchstream($call);
-                    ?>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Course Stream</span>
+                    <select class="form-control" name="course_stream" id="" aria-describedby="basic-addon1" required>
+                        <option></option>
+                        <?php
+                            // fetching all streams present
+                            $call = 1; //passing 1 to fetch desired output structure
+                            fetchstream($call);
+                        ?>
+                    </select>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon2">Course Full Name</span>
+                    <input type="text" class="form-control" name="course_fname" placeholder="Enter Course Full Name" aria-describedby="basic-addon2" required>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon3">Course Abbr Name</span>
+                    <input type="text" class="form-control" name="course_aname" placeholder="Enter Course Abbriviation Name" aria-describedby="basic-addon3" required>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon4">Course Duration</span>
+                    <input type="number" class="form-control" name="course_aname" placeholder="Enter Duration" aria-describedby="basic-addon4" required>
+                    <select class="form-control" name="feehead_category" id="" aria-describedby="basic-addon4" required>
+                        <option></option>
+                        <option value="">Hours</option>
+                        <option value="">Months</option>
+                        <option value="">Year</option>
                 </select>
-                <label for="stream_name">Course Full Name</label>
-                <input class="form-control" type="text" name="feehead_name" id="" placeholder="Enter Fee Head Name">
-                <label for="stream_name">Course Abbr Name</label>
-                <input class="form-control" type="text" name="feehead_name" id="" placeholder="Enter Fee Head Name">
-                <label for="stream_name">Course Duration</label>
-                <input class="form-control" type="number" name="feehead_name" id="" placeholder="Enter Duration Period">
-                <select class="form-control" name="feehead_category" id="">
-                    <option></option>
-                    <option value="">Hours</option>
-                    <option value="">Months</option>
-                    <option value="">Year</option>
-                </select>
+                </div>
+                <br>
                 <!-- <label for="stream_name">Taxable</label>
                 <input class="form-control" type="checkbox" name="feehead_tax" id=""> -->
-                <button class="btn btn-success" type="submit" name="new">Create Stream</button>
+                <button class="btn btn-success" type="submit" name="new">Create Course</button>
             </form>
 
             <?php

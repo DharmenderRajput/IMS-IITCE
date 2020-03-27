@@ -35,17 +35,17 @@
             <form action="" method="POST">
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">Fee Head Code</span>
-                    <input type="text" class="form-control" name="feehead_code" placeholder="Enter Fee Head Code" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" name="feehead_code" placeholder="Enter Fee Head Code" aria-describedby="basic-addon1" required>
                 </div>
                 <br>
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon2">Fee Head Name</span>
-                    <input type="text" class="form-control" name="feehead_name" placeholder="Enter Fee Head Name" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" name="feehead_name" placeholder="Enter Fee Head Name" aria-describedby="basic-addon2" required>
                 </div>
                 <br>
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon3">Fee Head Type</span>
-                   <select class="form-control" name="feehead_type" id="" aria-describedby="basic-addon3">
+                   <select class="form-control" name="feehead_type" id="" aria-describedby="basic-addon3" required>
                         <option></option>
                         <option value="Institutional">Institutional</option>
                         <option value="Non-Institutional">Non-Institutional</option>
@@ -54,7 +54,7 @@
                 <br>
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon4">Fee Head Category</span>
-                    <select class="form-control" name="feehead_category" id="" aria-describedby="basic-addon4">
+                    <select class="form-control" name="feehead_category" id="" aria-describedby="basic-addon4" required>
                         <option></option>
                         <option value="Installment">Installment</option>
                         <option value="Exam">Exam</option>
@@ -130,15 +130,28 @@
         }
     }
 
-    // updating existing stream
-    if (isset($_POST['update_stream'])) {
-        # calling updatestreame function
-        $id = $_POST['stream_id'];
-        $update = $_POST['stream_name'];
-        $result = updatestream($id, $update);
+    // updating existing feehead
+    if (isset($_POST['update_feehead'])) {
+        # calling updatefeehead function
+        #with required values
+        $data = array();
+        $data['code'] = $_POST['feehead_code'];
+        $data['name'] = $_POST['feehead_name'];
+        $data['type'] = $_POST['feehead_type'];
+        $data['category'] = $_POST['feehead_category'];
+        $data['tax'] = $_POST['feehead_tax'];
+        if($data['tax'] == "on"){
+            $data['tax'] = 1;
+        }else{
+            $data['tax'] = 0;
+        }
+        $id = $_POST['update_feehead'];
+        $result = updatefeehead($id, $data);
         if($result){
             // echo "<script>alert('Hurray');</script>";
-            header("location:./streammaster.php");
+            // header("location:./streammaster.php");
+            echo "<script>window.location.href='./feeheadmaster.php';</script>";
+
         }else{
             echo "<script>alert('Opps!');</script>";
         }
@@ -146,12 +159,14 @@
     
     // deleting a stream
     if (isset($_POST['delete'])) {
-        # calling deletestreame function
+        # calling deletefeehead function
         $delete = $_POST['delete'];
-        $result = deletestreame($delete);
+        $result = deletefeehead($delete);
         if($result){
             // echo "<script>alert('Stream Has Been Successfully Removed!');</script>";
-            header("location:./streammaster.php");
+            // header("location:./streammaster.php");
+            echo "<script>window.location.href='./feeheadmaster.php';</script>";
+
         }else{
             echo "<script>alert('Opps Some Error has occured.');<script>";
         }

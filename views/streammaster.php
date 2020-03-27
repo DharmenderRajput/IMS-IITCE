@@ -47,9 +47,9 @@
                 }
             ?>
         </div>
-        <div class="col-sm-6" style="height:80vh;;border:2px solid black;">
+        <div class="col-sm-6" style="height:80vh;border:2px solid black;">
             <!-- display existing stream -->
-            <table class="table table-bordered">
+            <table class="table table-bordered table-striped table-responsive">
                 <tr>
                     <th colspan="2">STREAMS</th>
                 </tr>

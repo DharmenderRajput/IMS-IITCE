@@ -138,12 +138,41 @@
                     <input type="checkbox" class="form-control" name="feehead_tax" aria-describedby="basic-addon5" '.$tax.'>
                 </div>
                 <br>
-                <button class="btn btn-success" type="submit" name="update">Update Feehead</button>
+                <button class="btn btn-success" type="submit" name="update_feehead" value="'.$update.'">Update Feehead</button>
             </form>
             ';
 
         }else{
             echo "Error Occured!";
+        }
+    }
+
+    function updatefeehead($id, $data)
+    {
+        include ("../library/database/config.php");
+
+        $sql = "UPDATE $fee_head SET fee_head_code = '".$data['code']."', fee_head_name = '".$data['name']."', fee_head_type = '".$data['type']."', fee_head_category = '".$data['category']."', taxable = '".$data['tax']."' WHERE id = $id";
+        $query = mysqli_query($conn, $sql);
+
+        if($query){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    #deleting a feehead
+    function deletefeehead($delete){
+        include ("../library/database/config.php");
+
+        $sql = "DELETE FROM $fee_head WHERE id = $delete";
+        $query = mysqli_query($conn, $sql);
+        if ($query) {
+            # Query OK
+            return true;
+        }else{
+            # Error in Query
+            return false;
         }
     }
 ?>

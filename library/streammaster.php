@@ -17,7 +17,7 @@
         }
     }
 
-    #fetching new stream
+    #fetching stream
     #the argument defines the calling location of the code and response output
     function fetchstream($call = 0)
     {

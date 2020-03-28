@@ -29,4 +29,5 @@
     $menu = "menu";
     $streams = "streams";
     $fee_head = "fee_head";
+    $courses = "courses";
 ?>

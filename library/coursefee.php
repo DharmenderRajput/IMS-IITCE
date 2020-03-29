@@ -18,7 +18,7 @@
                     while ($row = mysqli_fetch_assoc($query)) {
                         $feehead_id = $row['id'];
                         $feehead_name = $row['fee_head_name'];
-                        $query2 = mysqli_query($conn, "SELECT fee_head FROM $course_fee WHERE fee_head = $feehead_id");
+                        $query2 = mysqli_query($conn, "SELECT fee_head FROM $course_fee WHERE fee_head = $feehead_id AND course = $course");
                         if($query2){
                             #check if fee head is already alloted
                             if(!mysqli_num_rows($query2) > 0){
@@ -26,7 +26,7 @@
                                 echo '
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                        <input type="checkbox" value="'.$feehead_id.'" name="fee_head[]" aria-label="...">
+                                        <input type="checkbox" value="'.$feehead_id.'" class="fee_head" aria-label="...">
                                         </span>
                                         <p class="form-control-static"> '.$feehead_name.'</p>
                                     </div>
@@ -36,7 +36,7 @@
                     }
                     echo '
                     <br>
-                    <button class="btn btn-warning" type="submit" name="new">ADD</button>
+                    <button href="" class="btn btn-warning" type="button" onclick="addFeeHead('.$course.')" >ADD</button>
                     ';
                 }
             }
@@ -61,7 +61,7 @@
                                     <th colspan="2">FEE-HEADS</th>
                                 </tr>
                                 <tr class="info">
-                                    <th>Course</th>
+                                    <th>Select</th>
                                     <th>Fee-Head</th>
                                 </tr>
                                 <tr>
@@ -69,6 +69,49 @@
                                 </tr>
                             </tbody>
                         ';
+                    }else{
+                        // data found so display it
+                        echo '
+                            <tbody>
+                                <tr>
+                                    <th colspan="2">FEE-HEADS</th>
+                                </tr>
+                                <tr class="info">
+                                    <th>Select</th>
+                                    <th>Fee-Head</th>
+                                </tr>
+                        ';
+                        while ($row = mysqli_fetch_assoc($query)) {
+                            echo '
+                            <tr>
+                                <th><input type="checkbox" class="" value="'.$row['id'].'"></th>
+                                <th>'.$row['fee_head'].'</th>
+                            </tr>
+                            ';
+                        }
+                        echo '        
+                            </tbody>
+                        ';
+                    }
+                }
+            }
+        }
+
+        if ($fun == "add") {
+            # fetch all alloted feefeads for the selected course
+            if (isset($_POST['course'])) {
+                $course = $_POST['course'];
+
+                #include DB Connection file
+                include ("../library/database/config.php");
+
+                // print_r($_POST['data']);
+                $data = $_POST['data'];
+                foreach($data as $feehead){
+                    $sql = "INSERT INTO $course_fee(course, fee_head) VALUES ($course, $feehead)";
+                    $query = mysqli_query($conn, $sql);
+                    if ($query) {
+                        echo "ok";
                     }
                 }
             }

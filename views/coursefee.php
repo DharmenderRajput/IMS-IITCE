@@ -67,7 +67,7 @@
                         <th colspan="2">FEE-HEADS</th>
                     </tr>
                     <tr class="info">
-                        <th>Course</th>
+                        <th>Select</th>
                         <th>Fee-Head</th>
                     </tr>
                 </tbody>
@@ -109,6 +109,43 @@
                 }
             }
         );
+    }
+
+    function addFeeHead(selected){
+
+        // get values of all selected checkboxes
+        /* declare an checkbox array */
+        var chkArray = [];
+        
+        /* look for all checkboes that have a class 'fee_head' attached to it and check if it was checked */
+        $(".fee_head:checked").each(function() {
+            chkArray.push($(this).val());
+        });
+
+        // console.log(chkArray);
+
+        // AJAX call to update the records
+        $.ajax(
+            {
+                type : "POST",
+                url : "../library/coursefee.php",
+                data : {
+                    function : 'add',
+                    course : selected,
+                    data : chkArray
+                },
+                success: function(result){
+                    // $('#display').html(result);
+                    alert(result);
+                    // update data with new sets
+                    fetchFeeHeads(selected);
+                }
+            }
+        );
+
+
+        
+
     }
 </script>
 

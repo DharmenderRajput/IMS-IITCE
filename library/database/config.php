@@ -30,4 +30,5 @@
     $streams = "streams";
     $fee_head = "fee_head";
     $courses = "courses";
+    $course_fee = "course_fee";
 ?>

@@ -14,7 +14,7 @@
       }
   }  
 
-  function fetchcourses()
+  function fetchcourses($code = 0)
   {
     include ("../library/database/config.php");
 
@@ -39,21 +39,27 @@
                 $aname = $row['crs_aname'];
                 $duration = $row['crs_duration'];
                 $period = $row['crs_period'];
-                
-                echo '
-                    <tr>
-                        <td>'.$stream.'</td>
-                        <td>'.$fname.'</td>
-                        <td>'.$aname.'</td>
-                        <td>'.$duration.' '.$period.'</td>
-                        <td>
-                            <form method="POST">
-                                <button type="submit" name="update" value="'.$id.'">UPDATE</button>
-                                <button type="submit" name="delete" value="'.$id.'">REMOVE</button>
-                            </form>
-                        </td>
-                    </tr>
-                ';
+
+                if ($code == 0) {
+                    echo '
+                        <tr>
+                            <td>'.$stream.'</td>
+                            <td>'.$fname.'</td>
+                            <td>'.$aname.'</td>
+                            <td>'.$duration.' '.$period.'</td>
+                            <td>
+                                <form method="POST">
+                                    <button type="submit" name="update" value="'.$id.'">UPDATE</button>
+                                    <button type="submit" name="delete" value="'.$id.'">REMOVE</button>
+                                </form>
+                            </td>
+                        </tr>
+                    ';
+                }else{
+                    echo '
+                        <option value="'.$id.'">'.$aname.' ('.$duration.' '.$period.')</option>
+                    ';
+                }
             }
 
         }else{

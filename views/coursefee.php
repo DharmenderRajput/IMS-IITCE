@@ -136,16 +136,47 @@
                 },
                 success: function(result){
                     // $('#display').html(result);
-                    alert(result);
+                    // alert(result);
                     // update data with new sets
                     fetchFeeHeads(selected);
                 }
             }
         );
 
+    }
 
+    function removeFeeHead(selected) {
+
+        // get values of all selected checkboxes
+        /* declare an checkbox array */
+        var chkArray = [];
         
+        /* look for all checkboes that have a class 'fee_head' attached to it and check if it was checked */
+        $(".fee_head_remove:checked").each(function() {
+            chkArray.push($(this).val());
+        });
 
+        // console.log(chkArray);
+
+        // AJAX call to delete the records
+        $.ajax(
+            {
+                type : "POST",
+                url : "../library/coursefee.php",
+                data : {
+                    function : 'remove',
+                    course : selected,
+                    data : chkArray
+                },
+                success: function(result){
+                    // $('#display').html(result);
+                    // alert(result);
+                    // update data with new sets
+                    fetchFeeHeads(selected);
+                }
+            }
+        );
+        
     }
 </script>
 

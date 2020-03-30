@@ -49,6 +49,7 @@
                         <option></option>
                         <option value="Institutional">Institutional</option>
                         <option value="Non-Institutional">Non-Institutional</option>
+                        <option value="Non-Institutional">Head-Office</option>
                     </select>
                 </div>
                 <br>

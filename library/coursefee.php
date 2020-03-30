@@ -82,10 +82,18 @@
                                 </tr>
                         ';
                         while ($row = mysqli_fetch_assoc($query)) {
+                            $feehead_name;
+                            $feehead_id = $row['fee_head'];
+                            $sql1 = "SELECT fee_head_name FROM $fee_head WHERE id = $feehead_id";
+                            $query1 = mysqli_query($conn, $sql1);
+                            if($query1){
+                                $res = mysqli_fetch_assoc($query1);
+                                $feehead_name = $res['fee_head_name'];
+                            }
                             echo '
                             <tr>
                                 <th><input type="checkbox" class="" value="'.$row['id'].'"></th>
-                                <th>'.$row['fee_head'].'</th>
+                                <th>'.$feehead_name.'</th>
                             </tr>
                             ';
                         }

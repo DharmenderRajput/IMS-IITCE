@@ -44,8 +44,8 @@
                     echo '
                         <tr>
                             <td>'.$stream.'</td>
-                            <td>'.$fname.'</td>
                             <td>'.$aname.'</td>
+                            <td>'.$fname.'</td>
                             <td>'.$duration.' '.$period.'</td>
                             <td>
                                 <form method="POST">
@@ -128,13 +128,13 @@
                 </div>
                 <br>
                 <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon2">Course Full Name</span>
-                    <input type="text" class="form-control" name="course_fname" value="'.$fname.'" placeholder="Enter Course Full Name" aria-describedby="basic-addon2" required>
+                    <span class="input-group-addon" id="basic-addon3">Course Abbr Name</span>
+                    <input type="text" class="form-control" name="course_aname" value="'.$aname.'" placeholder="Enter Course Abbriviation Name" aria-describedby="basic-addon3" required>
                 </div>
                 <br>
                 <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon3">Course Abbr Name</span>
-                    <input type="text" class="form-control" name="course_aname" value="'.$aname.'" placeholder="Enter Course Abbriviation Name" aria-describedby="basic-addon3" required>
+                    <span class="input-group-addon" id="basic-addon2">Course Full Name</span>
+                    <input type="text" class="form-control" name="course_fname" value="'.$fname.'" placeholder="Enter Course Full Name" aria-describedby="basic-addon2" required>
                 </div>
                 <br>
                 <div class="input-group">

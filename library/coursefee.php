@@ -92,12 +92,17 @@
                             }
                             echo '
                             <tr>
-                                <th><input type="checkbox" class="" value="'.$row['id'].'"></th>
+                                <th><input type="checkbox" class="fee_head_remove" value="'.$row['id'].'"></th>
                                 <th>'.$feehead_name.'</th>
                             </tr>
                             ';
                         }
-                        echo '        
+                        echo '    
+                            <tr>
+                                <td colspan="2">
+                                    <button href="" class="btn btn-danger" type="button" onclick="removeFeeHead('.$course.')" >REMOVE</button>
+                                </td>
+                            </tr>    
                             </tbody>
                         ';
                     }
@@ -119,7 +124,27 @@
                     $sql = "INSERT INTO $course_fee(course, fee_head) VALUES ($course, $feehead)";
                     $query = mysqli_query($conn, $sql);
                     if ($query) {
-                        echo "ok";
+                        echo "Successfully Added";
+                    }
+                }
+            }
+        }
+
+        if($fun == "remove"){
+            # fetch all feefeads for the selected course to be removed
+            if (isset($_POST['course'])) {
+                $course = $_POST['course'];
+
+                #include DB Connection file
+                include ("../library/database/config.php");
+
+                // print_r($_POST['data']);
+                $data = $_POST['data'];
+                foreach($data as $id){
+                    $sql = "DELETE FROM $course_fee WHERE id = $id";
+                    $query = mysqli_query($conn, $sql);
+                    if ($query) {
+                        echo "Successfully Removed";
                     }
                 }
             }

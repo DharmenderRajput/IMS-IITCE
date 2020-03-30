@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2020 at 07:01 AM
+-- Generation Time: Mar 30, 2020 at 08:46 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -42,7 +42,29 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `crs_stream`, `crs_fname`, `crs_aname`, `crs_duration`, `crs_period`) VALUES
-(2, 43, 'Advance diploma in hardware networking', 'ADHN', 4, 'Months');
+(3, 42, 'Information Tecnology', 'IT', 5, 'Months'),
+(4, 43, 'Advance diploma in hardware networking', 'ADHN', 2, 'Months'),
+(5, 42, 'Networking', 'NETW', 2, 'Year');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course_fee`
+--
+
+CREATE TABLE `course_fee` (
+  `id` int(255) NOT NULL,
+  `course` int(255) NOT NULL,
+  `fee_head` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `course_fee`
+--
+
+INSERT INTO `course_fee` (`id`, `course`, `fee_head`) VALUES
+(15, 4, 8),
+(16, 4, 9);
 
 -- --------------------------------------------------------
 
@@ -64,7 +86,9 @@ CREATE TABLE `fee_head` (
 --
 
 INSERT INTO `fee_head` (`id`, `fee_head_code`, `fee_head_name`, `fee_head_type`, `fee_head_category`, `taxable`) VALUES
-(8, 'Add Fee', 'Addmission Fee', 'Institutional', 'Addmission', 1);
+(8, 'Add Fee', 'Addmission Fee', 'Institutional', 'Addmission', 1),
+(9, 'IDCARD', 'Identity card', 'Non-Institutional', 'Addmission', 1),
+(10, 'EXFEE', 'Exam Fees', 'Non-Institutional', 'Exam', 1);
 
 -- --------------------------------------------------------
 
@@ -96,7 +120,7 @@ INSERT INTO `menu` (`menu_id`, `menu_position`, `menu_head`, `menu_type`, `link`
 (4, 1, 'Course Master', 1, 'coursemaster.php', 'glyphicon-book', 1, 0, 0, 0),
 (5, 1, 'Affiliation Body Master', 1, '', 'glyphicon-education', 0, 0, 0, 0),
 (6, 1, 'Affiliation Body Setup', 1, '', 'glyphicon-education', 0, 0, 0, 0),
-(7, 1, 'Course Fee Setup', 1, '', 'glyphicon-usd', 0, 0, 0, 0);
+(7, 1, 'Course Fee Setup', 1, 'coursefee.php', 'glyphicon-usd', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -148,6 +172,12 @@ ALTER TABLE `courses`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `course_fee`
+--
+ALTER TABLE `course_fee`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `fee_head`
 --
 ALTER TABLE `fee_head`
@@ -179,13 +209,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `course_fee`
+--
+ALTER TABLE `course_fee`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `fee_head`
 --
 ALTER TABLE `fee_head`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `menu`

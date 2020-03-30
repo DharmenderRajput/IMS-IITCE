@@ -49,13 +49,13 @@
                 </div>
                 <br>
                 <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon2">Course Full Name</span>
-                    <input type="text" class="form-control" name="course_fname" placeholder="Enter Course Full Name" aria-describedby="basic-addon2" required>
+                    <span class="input-group-addon" id="basic-addon3">Course Abbr Name</span>
+                    <input type="text" class="form-control" name="course_aname" placeholder="Enter Course Abbriviation Name" aria-describedby="basic-addon3" required>
                 </div>
                 <br>
                 <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon3">Course Abbr Name</span>
-                    <input type="text" class="form-control" name="course_aname" placeholder="Enter Course Abbriviation Name" aria-describedby="basic-addon3" required>
+                    <span class="input-group-addon" id="basic-addon2">Course Full Name</span>
+                    <input type="text" class="form-control" name="course_fname" placeholder="Enter Course Full Name" aria-describedby="basic-addon2" required>
                 </div>
                 <br>
                 <div class="input-group">
@@ -90,8 +90,8 @@
                 </tr>
                 <tr class="info">
                     <th>Stream</th>
-                    <th>Full Name</th>
                     <th>Abbr Name</th>
+                    <th>Full Name</th>
                     <th>Duration</th>
                     <th>Actions</th>
                 </tr>

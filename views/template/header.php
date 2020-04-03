@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../assets/normalize-css/normalize.css">
     <link rel="stylesheet" href="../assets/bootstrap-3.4.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
 </head>
 <body>

@@ -5,10 +5,10 @@
     $db_servername = "localhost";
 
     #DB Username
-    $db_username = "root";
+    $db_username = "ims_iitce";
 
     #DB Password
-    $db_password = "";
+    $db_password = "ims_iitce";
 
     #DB Name
     $db_name = "ims_iitce";

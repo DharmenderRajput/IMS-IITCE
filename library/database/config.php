@@ -5,10 +5,10 @@
     $db_servername = "localhost";
 
     #DB Username
-    $db_username = "ims_iitce";
+    $db_username = "root";
 
     #DB Password
-    $db_password = "ims_iitce";
+    $db_password = "";
 
     #DB Name
     $db_name = "ims_iitce";
@@ -31,4 +31,8 @@
     $fee_head = "fee_head";
     $courses = "courses";
     $course_fee = "course_fee";
+    $departments = "departments";
+    $designation = "designation";
+    $staffmaster = "staff_master";
+    $batchmaster = "batch_master";
 ?>

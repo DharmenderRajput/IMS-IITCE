@@ -1,7 +1,7 @@
 <?php
     include_once("./database/config.php");
 
-    #   reciving and santising the post data from the login form
+    #   reciving and santizing the post data from the login form
     $username = mysqli_real_escape_string($conn,$_POST['username']);
     $password = mysqli_real_escape_string($conn,$_POST['password']);
 
@@ -26,9 +26,11 @@
                 #fetching more data to set essential criterias
                 $data = mysqli_fetch_assoc($query);
                 $user_authority = $data['User_authority'];
+                $user_inst = $data['institution'];
                 // setcookie("user_access", $user_authority);
                 $_SESSION['user_access'] = $user_authority;
-
+                $_SESSION['institution'] = $user_inst;
+                
                 #redirecting to the dashboard
                 header("location:../views/dashboard.php");
 

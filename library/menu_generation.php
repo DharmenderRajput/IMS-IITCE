@@ -21,7 +21,7 @@
             $menu_id = $result['menu_id'];
             $menu_head = $result['menu_head'];
 
-            $search = mysqli_query($conn, "SELECT * FROM $menu where menu_position = $menu_id");
+            $search = mysqli_query($conn, "SELECT * FROM $menu where menu_position = $menu_id AND $user_access = 1");
 
             echo '
             <li class="dropdown">

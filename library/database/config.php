@@ -35,4 +35,5 @@
     $designation = "designation";
     $staffmaster = "staff_master";
     $batchmaster = "batch_master";
+    $enquiry = "enquiry";
 ?>

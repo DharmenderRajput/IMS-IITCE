@@ -9,7 +9,11 @@
         $dep = $_POST['dep_name'];
         $des = $_POST['des_name'];
 
-        $sql = "INSERT INTO $staffmaster (name, dep, des) VALUES ('$name', $dep, $des)";
+        // getting institution value to attach with the record   
+        $inst_name = $_SESSION['institution'];
+
+        // finally create one
+        $sql = "INSERT INTO $staffmaster (name, dep, des, institution) VALUES ('$name', $dep, $des, '$inst_name')";
         $query = mysqli_query($conn, $sql);
         
         if($query){
@@ -18,14 +22,23 @@
             // echo mysqli_error($conn);
             return false;
         }
+        
     }
 
     #fetching department list
-    function fetch_dep ()
-    {
+    function fetch_dep ($session = 0)
+    {   
+        // coping with ajax session clash
+        if ($session == 1) {
+            session_start();
+        }
+
         include ("../library/database/config.php");
 
-        $sql = "SELECT * FROM $departments";
+        // getting institution value to attach with the record   
+        $inst_name = $_SESSION['institution'];
+
+        $sql = "SELECT * FROM $departments WHERE institution = '$inst_name'";
         $query = mysqli_query($conn, $sql);
         if ($query) {
             # query executed successfully
@@ -51,11 +64,19 @@
     }
 
     #fetching designation list
-    function fetch_des ()
-    {
+    function fetch_des ($session = 0)
+    {   
+        // coping with ajax session clash
+        if ($session == 1) {
+            session_start();
+        }
+
         include ("../library/database/config.php");
 
-        $sql = "SELECT * FROM $designation";
+        // getting institution value to attach with the record   
+        $inst_name = $_SESSION['institution'];
+
+        $sql = "SELECT * FROM $designation WHERE institution = '$inst_name'";
         $query = mysqli_query($conn, $sql);
         if ($query) {
             # query executed successfully
@@ -84,7 +105,10 @@
 
         include ("../library/database/config.php");
 
-        $sql = "SELECT * FROM $staffmaster";
+        // getting institution value to attach with the record   
+        $inst_name = $_SESSION['institution'];
+
+        $sql = "SELECT * FROM $staffmaster WHERE institution = '$inst_name'";
         $query = mysqli_query($conn, $sql);
         if ($query) {
             if (mysqli_num_rows($query) > 0) {
@@ -136,12 +160,16 @@
 
         #adding department
         if ($fun == "add_dep") {
-            
+            session_start();    //must start a session again to cope with ajax problem
+
             $dep_name = $_POST['name'];
 
             include ("../library/database/config.php");
 
-            $sql = "INSERT INTO $departments (name) VALUES ('$dep_name')";
+            // getting institution value to attach with the record   
+            $inst_name = $_SESSION['institution'];
+
+            $sql = "INSERT INTO $departments (name, institution) VALUES ('$dep_name', '$inst_name')";
             $query = mysqli_query($conn, $sql);
 
             if ($query) {
@@ -152,12 +180,16 @@
 
         #adding designation
         if ($fun == "add_des") {
-            
+            session_start();    //must start a session again to cope with ajax problem
+
             $des_name = $_POST['name'];
 
             include ("../library/database/config.php");
 
-            $sql = "INSERT INTO $designation (name) VALUES ('$des_name')";
+            // getting institution value to attach with the record   
+            $inst_name = $_SESSION['institution'];
+
+            $sql = "INSERT INTO $designation (name, institution) VALUES ('$des_name', '$inst_name')";
             $query = mysqli_query($conn, $sql);
 
             if ($query) {
@@ -167,11 +199,15 @@
         }
 
         if ($fun == "fetch_dep") {
-            fetch_dep();
+            // passing special parameter to cope with ajax session problem
+            $session = 1;
+            fetch_dep($session);
         }
 
         if ($fun == "fetch_des") {
-            fetch_des();
+            // passing special parameter to cope with ajax session problem
+            $session = 1;
+            fetch_des($session);
         }
 
 

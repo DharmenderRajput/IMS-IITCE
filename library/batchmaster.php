@@ -11,7 +11,10 @@
         $course = $data['course'];
         $faculty = $data['faculty'];
 
-        $sql = "INSERT INTO $batchmaster (name, sdate, edate, course, faculty) VALUES ('$name', '$sdate', '$edate', $course, $faculty)";
+        // getting institution value to attach with the record   
+        $inst_name = $_SESSION['institution'];
+
+        $sql = "INSERT INTO $batchmaster (name, sdate, edate, course, faculty, institution) VALUES ('$name', '$sdate', '$edate', $course, $faculty, '$inst_name')";
         $query = mysqli_query($conn, $sql);
         
         if($query){
@@ -26,8 +29,11 @@
     function fetchbatch(){
 
         include ("../library/database/config.php");
+
+        // getting institution value to attach with the record   
+        $inst_name = $_SESSION['institution'];
         
-        $sql = "SELECT * FROM $batchmaster";
+        $sql = "SELECT * FROM $batchmaster WHERE institution = '$inst_name'";
         $query = mysqli_query($conn, $sql);
 
         if ($query) {
@@ -67,7 +73,7 @@
             }else{
                 echo "
                 <tr>
-                    <th>No Data Found</th>
+                    <th colspan='4'>No Data Found</th>
                 </tr>
             "; 
             }

@@ -28,7 +28,7 @@
             <div class="col-sm-3">
                 <p>Company - IITCE</p>
                 <p>Current Date - <?php echo date("d-m-Y"); ?></p>
-                <p>Current User - Admin</p>
+                <p>Welcome - <?php echo $_SESSION['institution']." (".$_SESSION['user_access'].")" ?></p>
             </div>
             <div class="col-sm-1" style="text-align:center;">
                 <p></p>
